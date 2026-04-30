@@ -4,7 +4,7 @@
 </p>
 
 <p align="center">
-  <img src="./resume/Photo.png" alt="Yunhao Feng" width="180" style="border-radius:50%;"/>
+  <img src="head.jpg" alt="Yunhao Feng" width="180" style="border-radius:50%;"/>
 </p>
 
 <p align="center">
