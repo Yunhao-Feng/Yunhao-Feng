@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yunhao Feng | Agent Safety Researcher</title>
+    <meta name="description" content="Yunhao Feng's academic and industry profile in Agent Safety, Computer-Use Agents, and Agentic RL." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-blur bg-blur-1"></div>
+    <div class="bg-blur bg-blur-2"></div>
+
+    <header class="topbar">
+      <div class="brand">Yunhao Feng</div>
+      <button id="langToggle" class="lang-btn" aria-label="Switch language">中文</button>
+    </header>
+
+    <main class="container">
+      <section class="hero card">
+        <img src="resume/avatar.jpg" alt="Yunhao Feng" class="avatar" />
+        <div>
+          <h1 data-i18n="name">Yunhao Feng</h1>
+          <p class="subtitle" data-i18n="title">Ph.D. Student · Agent Safety / Computer-Use Agents</p>
+          <p class="desc" data-i18n="summary">
+            Focused on safety, evaluation, and training of Computer-Use/Coding Agents, with hands-on experience in benchmark construction, runtime monitoring, tool-use risk modeling, process-level verifier design, and agentic RL from real interaction trajectories.
+          </p>
+          <div class="links">
+            <a href="mailto:Alctrain@163.com">Email</a>
+            <a href="https://github.com/Yunhao-Feng" target="_blank" rel="noreferrer">GitHub</a>
+            <a href="https://scholar.google.com/citations?user=7xD7XIUAAAAJ&hl=zh-CN" target="_blank" rel="noreferrer">Google Scholar</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid">
+        <article class="card">
+          <h2 data-i18n="education">Education</h2>
+          <ul>
+            <li><strong data-i18n="edu1">National University of Defense Technology, Ph.D. in Management Science and Engineering (Engineering)</strong><span>2024.03 – Present</span></li>
+            <li><strong data-i18n="edu2">Fudan University, Visiting Student</strong><span>2025.05 – 2025.12</span></li>
+            <li><strong data-i18n="edu3">National University of Defense Technology, M.Eng. in Electronic Information</strong><span>2022.08 – 2024.03</span></li>
+            <li><strong data-i18n="edu4">Southwestern University of Finance and Economics, B.Sc. in Information Management and Information System</strong><span>2018.09 – 2022.06</span></li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2 data-i18n="experience">Experience</h2>
+          <ul>
+            <li><strong data-i18n="exp1">Alibaba Future Living Lab · Algorithm Engineer Intern (Coding Agent Safety)</strong><span>2025.12 – Present</span></li>
+            <li><strong data-i18n="exp2">JD Explore Academy · Algorithm Engineer Intern</strong><span>2022.02 – 2022.05</span></li>
+          </ul>
+          <p data-i18n="expDesc">Studied safety attack surfaces across planning, tool-use, and code execution; designed runtime guardrails and trajectory-driven safety learning pipelines.</p>
+        </article>
+
+        <article class="card span-2">
+          <h2 data-i18n="publications">Selected Publications & Works</h2>
+          <ul class="pubs">
+            <li>SSE: Safe Self-evolving Reinforcement Learning in Coding Agents (Under Submission, 2026)</li>
+            <li>AgentHazard: A Benchmark for Evaluating Harmful Behavior in Computer-Use Agents (Under Review, ACM MM 2026)</li>
+            <li>BackdoorAgent: Benchmarking Backdoor Attacks on Agentic Applications (ACL 2026 Findings)</li>
+            <li>SkillTrojan: Backdoor Attacks on Skill-Based Agent Systems (Under Review, 2026)</li>
+            <li>PaperAsk: Reliability Evaluation of LLMs in Paper Search and Reading (WWW 2026)</li>
+            <li>FCAT: Federated Causal Adversarial Training (Knowledge-Based Systems, 2025)</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2 data-i18n="skills">Research Interests</h2>
+          <div class="tags">
+            <span>Computer-Use Agents</span><span>Agent Safety</span><span>Agentic RL</span><span>Post-Training</span><span>Verifier Design</span><span>Tool-use Reliability</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h2 data-i18n="awards">Awards</h2>
+          <ul>
+            <li data-i18n="award1">Champion, Huawei Cup China Graduate AI Innovation Competition (LLM Security Track)</li>
+            <li data-i18n="award2">Third Prize, China Graduate Electronic Design Contest</li>
+            <li data-i18n="award3">Second Prize, National College Mathematical Modeling Contest</li>
+          </ul>
+        </article>
+
+        <article class="card span-2">
+          <h2 data-i18n="repos">Top GitHub Repositories</h2>
+          <p data-i18n="reposHint">Auto-loaded from GitHub API by stars.</p>
+          <div id="repoList" class="repos"></div>
+        </article>
+      </section>
+    </main>
+
+    <footer class="footer">© <span id="year"></span> Yunhao Feng</footer>
+    <script src="script.js"></script>
+  </body>
+</html>
