@@ -1,0 +1,16 @@
+\documentclass{setting}
+\begin{document}
+\pagenumbering{gobble} % suppress displaying page number
+
+%%%% 利用tikz来定位照片
+\begin{tikzpicture}[remember picture, overlay]
+  \node[anchor = north west] 
+  at ($(current page.north west)+(0cm,0cm)$) 
+  {\includegraphics[height=3cm]{Photo.png}};
+\end{tikzpicture}%
+
+
+\input{body}
+
+\input{footer}
+\end{document}
