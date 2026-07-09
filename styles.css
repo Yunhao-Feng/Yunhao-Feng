@@ -39,3 +39,7 @@ li span { font-size: 0.9rem; }
 .bg-blur-1 { background: #a8d8ff; top: -50px; left: -80px; }
 .bg-blur-2 { background: #d7b7ff; right: -80px; bottom: -80px; }
 @media (max-width: 800px) { .hero { grid-template-columns: 1fr; } .grid { grid-template-columns: 1fr; } .span-2 { grid-column: span 1; } }
+.section-note { color: var(--muted); margin-top: -0.35rem; line-height: 1.5; }
+.pubs a { color: var(--text); text-decoration: none; }
+.pubs a:hover { color: var(--accent); }
+.pubs span { display: block; color: var(--muted); margin-top: 0.15rem; }

@@ -22,6 +22,7 @@
 ### 🧭 Quick Links
 - 📄 Homepage: <a href="https://yunhao-feng.github.io/">yunhao-feng.github.io</a>
 - 🎓 Google Scholar: <a href="https://scholar.google.com/citations?user=7xD7XIUAAAAJ&hl=zh-CN">Publications</a>
+- 🔁 Publications: `data/publications.json` is refreshed by a scheduled GitHub Actions workflow when Google Scholar is reachable.
 - 💼 Resume: see repository `resume/`
 
 ### 🤝 Let's Connect
