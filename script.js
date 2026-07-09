@@ -3,7 +3,7 @@ const i18n = {
     name: 'Yunhao Feng',
     title: 'Ph.D. Student · Agent Safety / Computer-Use Agents',
     summary: 'Focused on safety, evaluation, and training of Computer-Use/Coding Agents, with hands-on experience in benchmark construction, runtime monitoring, tool-use risk modeling, process-level verifier design, and agentic RL from real interaction trajectories.',
-    education: 'Education', experience: 'Experience', publications: 'Selected Publications & Works', skills: 'Research Interests', service: 'Academic Service', awards: 'Awards', repos: 'Top GitHub Repositories', reposHint: 'Auto-loaded from GitHub API by stars.',
+    education: 'Education', experience: 'Experience', publications: 'Selected Publications & Works', pubsHint: 'Auto-synced daily from Google Scholar when GitHub Actions runs; falls back to the curated local list.', skills: 'Research Interests', service: 'Academic Service', awards: 'Awards', repos: 'Top GitHub Repositories', reposHint: 'Auto-loaded from GitHub API by stars.',
     edu1: 'National University of Defense Technology, Ph.D. in Management Science and Engineering (Engineering)',
     edu2: 'Fudan University, Visiting Student',
     edu3: 'National University of Defense Technology, M.Eng. in Electronic Information',
@@ -20,7 +20,7 @@ const i18n = {
     name: '冯云浩',
     title: '博士生 · Agent 安全 / Computer-Use Agent',
     summary: '聚焦 Computer-Use / Coding Agent 的安全、评测与训练，具备 benchmark 构建、运行时监控、tool-use 风险建模、过程级 verifier 设计及基于实机轨迹的 Agentic RL 研究经验。',
-    education: '教育经历', experience: '实习经历', publications: '代表性成果', skills: '研究方向', service: '学术服务', awards: '获奖情况', repos: 'GitHub 高星仓库', reposHint: '通过 GitHub API 按 Star 自动加载。',
+    education: '教育经历', experience: '实习经历', publications: '代表性成果', pubsHint: 'GitHub Actions 运行时每日尝试从 Google Scholar 自动同步；不可用时使用本地维护列表。', skills: '研究方向', service: '学术服务', awards: '获奖情况', repos: 'GitHub 高星仓库', reposHint: '通过 GitHub API 按 Star 自动加载。',
     edu1: '国防科技大学，管理科学与工程（工学）博士',
     edu2: '复旦大学，访问学生',
     edu3: '国防科技大学，电子信息硕士',
@@ -42,6 +42,30 @@ const applyLang = () => {
 };
 document.getElementById('langToggle').addEventListener('click', () => { current = current === 'en' ? 'zh' : 'en'; applyLang(); });
 
+function escapeHtml(value) {
+  return String(value || '').replace(/[&<>\"]/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '\"': '&quot;' }[char]));
+}
+
+function publicationMarkup(pub) {
+  const safeTitle = escapeHtml(pub.title);
+  const safeUrl = escapeHtml(pub.url);
+  const title = safeUrl ? `<a href="${safeUrl}" target="_blank" rel="noreferrer">${safeTitle}</a>` : safeTitle;
+  const details = [pub.venue, pub.year].filter(Boolean).map(escapeHtml).join(', ');
+  return `<li><strong>${title}</strong>${details ? `<span>${details}</span>` : ''}</li>`;
+}
+
+async function loadPublications() {
+  const container = document.getElementById('publicationList');
+  try {
+    const resp = await fetch('data/publications.json', { cache: 'no-store' });
+    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+    const publications = await resp.json();
+    container.innerHTML = publications.map(publicationMarkup).join('');
+  } catch {
+    container.innerHTML = '<li>Failed to load publications. Please visit Google Scholar for the latest list.</li>';
+  }
+}
+
 async function loadRepos() {
   try {
     const resp = await fetch('https://api.github.com/users/Yunhao-Feng/repos?per_page=100');
@@ -56,4 +80,5 @@ async function loadRepos() {
 
 document.getElementById('year').textContent = new Date().getFullYear();
 applyLang();
+loadPublications();
 loadRepos();

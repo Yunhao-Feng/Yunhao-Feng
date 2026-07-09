@@ -1,0 +1,44 @@
+[
+  {
+    "title": "Safety in Self-Evolving LLM Agent Systems: Threats, Amplification, and Case Studies",
+    "venue": "arXiv",
+    "year": "2026",
+    "url": "https://arxiv.org/abs/2606.23075"
+  },
+  {
+    "title": "SkillTrojan: Backdoor Attacks on Skill-Based Agent Systems",
+    "venue": "International Conference on Machine Learning",
+    "year": "2026",
+    "url": "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=7xD7XIUAAAAJ"
+  },
+  {
+    "title": "AgentHazard: A Benchmark for Evaluating Harmful Behavior in Computer-Use Agents",
+    "venue": "arXiv",
+    "year": "2026",
+    "url": "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=7xD7XIUAAAAJ"
+  },
+  {
+    "title": "BackdoorAgent: A Unified Framework for Backdoor Attacks on LLM-based Agents",
+    "venue": "Annual Meeting of the Association for Computational Linguistics Findings",
+    "year": "2026",
+    "url": "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=7xD7XIUAAAAJ"
+  },
+  {
+    "title": "PaperAsk: A Benchmark for Reliability Evaluation of LLMs in Paper Search and Reading",
+    "venue": "The Web Conference",
+    "year": "2026",
+    "url": "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=7xD7XIUAAAAJ"
+  },
+  {
+    "title": "FCAT: Federated Causal Adversarial Training",
+    "venue": "Knowledge-Based Systems",
+    "year": "2025",
+    "url": "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=7xD7XIUAAAAJ"
+  },
+  {
+    "title": "A Survey of Security Threats in Federated Learning",
+    "venue": "Complex & Intelligent Systems",
+    "year": "2025",
+    "url": "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=7xD7XIUAAAAJ"
+  }
+]
