@@ -18,12 +18,6 @@ from pathlib import Path
 PROFILE_USER = "7xD7XIUAAAAJ"
 PROFILE_URL = f"https://scholar.google.com/citations?user={PROFILE_USER}&hl=en&pagesize=100"
 OUT = Path("data/publications.json")
-PINNED = {
-    "title": "Safety in Self-Evolving LLM Agent Systems: Threats, Amplification, and Case Studies",
-    "venue": "arXiv",
-    "year": "2026",
-    "url": "https://arxiv.org/abs/2606.23075",
-}
 
 
 def textify(value: str) -> str:
@@ -44,9 +38,9 @@ def fetch_profile() -> str:
         return response.read().decode("utf-8", errors="replace")
 
 
-def parse_publications(page: str) -> list[dict[str, str]]:
+def parse_publications(page: str) -> list[dict[str, object]]:
     rows = re.findall(r'<tr class="gsc_a_tr">(.*?)</tr>', page, flags=re.S)
-    publications: list[dict[str, str]] = []
+    publications: list[dict[str, object]] = []
     for row in rows:
         title_match = re.search(r'<a[^>]+class="gsc_a_at"[^>]+href="([^"]+)"[^>]*>(.*?)</a>', row, flags=re.S)
         if not title_match:
@@ -57,24 +51,60 @@ def parse_publications(page: str) -> list[dict[str, str]]:
         venue = metadata[1] if len(metadata) > 1 else ""
         year_match = re.search(r'<span class="gsc_a_h gsc_a_hc gs_ibl">(\d{4})</span>', row)
         year = year_match.group(1) if year_match else ""
-        publications.append({
+        citation_match = re.search(r'<a[^>]+class="gsc_a_ac[^"]*"[^>]*>(\d+)</a>', row)
+        citations = int(citation_match.group(1)) if citation_match else None
+        item: dict[str, str | int] = {
             "title": title,
             "venue": venue,
             "year": year,
             "url": urllib.parse.urljoin("https://scholar.google.com", html.unescape(href)),
-        })
+        }
+        if citations is not None:
+            item["citations"] = citations
+        publications.append(item)
     return publications
 
 
-def merge_with_pinned(publications: list[dict[str, str]]) -> list[dict[str, str]]:
+def publication_key(pub: dict[str, object]) -> str:
+    return re.sub(r"\W+", "", str(pub.get("title", "")).lower())
+
+
+def read_existing() -> list[dict[str, object]]:
+    if not OUT.exists():
+        return []
+    try:
+        data = json.loads(OUT.read_text(encoding="utf-8"))
+    except Exception:
+        return []
+    return data if isinstance(data, list) else []
+
+
+def merge_with_existing(publications: list[dict[str, object]]) -> list[dict[str, object]]:
+    """Preserve curated homepage fields while filling in fresh Scholar data."""
+    existing = read_existing()
+    by_key = {publication_key(pub): pub for pub in publications}
+    merged: list[dict[str, object]] = []
     seen: set[str] = set()
-    merged: list[dict[str, str]] = []
-    for pub in [PINNED, *publications]:
-        key = re.sub(r"\W+", "", pub["title"].lower())
-        if key in seen:
+
+    for curated in existing:
+        key = publication_key(curated)
+        if not key:
             continue
+        scholar = by_key.get(key, {})
+        item = dict(curated)
+        for field in ("citations", "year"):
+            if scholar.get(field) not in (None, ""):
+                item[field] = scholar[field]
+        if "scholar_url" not in item and scholar.get("url"):
+            item["scholar_url"] = scholar["url"]
+        merged.append(item)
         seen.add(key)
-        merged.append(pub)
+
+    for pub in publications:
+        key = publication_key(pub)
+        if key and key not in seen:
+            merged.append(pub)
+            seen.add(key)
     return merged
 
 
@@ -90,7 +120,7 @@ def main() -> int:
         print("warning: no publications parsed; keeping existing JSON", file=sys.stderr)
         return 0
 
-    OUT.write_text(json.dumps(merge_with_pinned(publications), ensure_ascii=False, indent=2) + "\n")
+    OUT.write_text(json.dumps(merge_with_existing(publications), ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"updated {OUT} with {len(publications)} Google Scholar publications")
     return 0
 

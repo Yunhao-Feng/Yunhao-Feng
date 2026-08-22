@@ -4,103 +4,196 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Yunhao Feng | Agent Safety Researcher</title>
-    <meta name="description" content="Yunhao Feng's academic and industry profile in Agent Safety, Computer-Use Agents, and Agentic RL." />
+    <meta name="description" content="Yunhao Feng's academic homepage: agent safety, computer-use agents, backdoor attacks, benchmarks, and trustworthy AI." />
+    <meta property="og:title" content="Yunhao Feng | Agent Safety Researcher" />
+    <meta property="og:description" content="Selected publications, projects, and academic profile of Yunhao Feng." />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="head.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="bg-blur bg-blur-1"></div>
-    <div class="bg-blur bg-blur-2"></div>
-
     <header class="topbar">
-      <div class="brand">Yunhao Feng</div>
-      <button id="langToggle" class="lang-btn" aria-label="Switch language">中文</button>
+      <a class="brand" href="#top">Yunhao Feng</a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#about" data-i18n="navAbout">About</a>
+        <a href="#news" data-i18n="navNews">News</a>
+        <a href="#publications" data-i18n="navPublications">Publications</a>
+        <a href="#experience" data-i18n="navExperience">Experience</a>
+      </nav>
+      <button id="langToggle" class="icon-btn" type="button" aria-label="Switch language">中文</button>
     </header>
 
-    <main class="container">
-      <section class="hero card">
+    <main id="top" class="page-shell">
+      <aside class="profile-panel">
         <img src="resume/Photo.png" alt="Yunhao Feng" class="avatar" />
-        <div>
-          <h1 data-i18n="name">Yunhao Feng</h1>
-          <p class="subtitle" data-i18n="title">Ph.D. Student · Agent Safety / Computer-Use Agents</p>
-          <p class="desc" data-i18n="summary">
-            Focused on safety, evaluation, and training of Computer-Use/Coding Agents, with hands-on experience in benchmark construction, runtime monitoring, tool-use risk modeling, process-level verifier design, and agentic RL from real interaction trajectories.
-          </p>
-          <div class="links">
-            <a href="mailto:Alctrain@163.com">Email</a>
-            <a href="https://github.com/Yunhao-Feng" target="_blank" rel="noreferrer">GitHub</a>
-            <a href="https://scholar.google.com/citations?user=7xD7XIUAAAAJ&hl=zh-CN" target="_blank" rel="noreferrer">Google Scholar</a>
-          </div>
+        <h1 data-i18n="name">Yunhao Feng</h1>
+        <p class="role" data-i18n="role">Ph.D. Student · Agent Safety Researcher</p>
+        <p class="affiliation" data-i18n="affiliation">Ant Group · National University of Defense Technology</p>
+
+        <div class="quick-stats" aria-label="Research highlights">
+          <div><strong>150</strong><span data-i18n="statCitations">Citations</span></div>
+          <div><strong>90</strong><span data-i18n="statTopPaper">Top paper</span></div>
+          <div><strong>ICML / MM</strong><span>2026</span></div>
         </div>
-      </section>
 
-      <section class="grid">
-        <article class="card">
-          <h2 data-i18n="education">Education</h2>
-          <ul>
-            <li><strong data-i18n="edu1">National University of Defense Technology, Ph.D. in Management Science and Engineering (Engineering)</strong><span>2024.03 – Present</span></li>
-            <li><strong data-i18n="edu2">Fudan University, Visiting Student</strong><span>2025.05 – 2025.12</span></li>
-            <li><strong data-i18n="edu3">National University of Defense Technology, M.Eng. in Electronic Information</strong><span>2022.08 – 2024.03</span></li>
-            <li><strong data-i18n="edu4">Southwestern University of Finance and Economics, B.Sc. in Information Management and Information System</strong><span>2018.09 – 2022.06</span></li>
-          </ul>
-        </article>
+        <div class="profile-links">
+          <a href="mailto:Alctrain@163.com">Email</a>
+          <a href="https://github.com/Yunhao-Feng" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://scholar.google.com/citations?user=7xD7XIUAAAAJ&hl=zh-CN" target="_blank" rel="noreferrer">Google Scholar</a>
+          <a href="https://yunhao-feng.github.io/AgentHazard/" target="_blank" rel="noreferrer">AgentHazard</a>
+        </div>
 
-        <article class="card">
-          <h2 data-i18n="experience">Experience</h2>
-          <ul>
-            <li><strong data-i18n="exp1">Ant Group, Department of Large Security · Algorithm Engineer Intern (Agent Safety)</strong><span>2026.05 – Present</span></li>
-            <li><strong data-i18n="exp2">Alibaba Future Living Lab · Algorithm Engineer Intern (Coding Agent Safety)</strong><span>2025.12 – 2026.05</span></li>
-            <li><strong data-i18n="exp3">JD Explore Academy · Algorithm Engineer Intern</strong><span>2022.02 – 2022.05</span></li>
-          </ul>
-          <p data-i18n="expDesc">Studied safety attack surfaces across planning, tool-use, and code execution; designed runtime guardrails and trajectory-driven safety learning pipelines.</p>
-        </article>
-
-        <article class="card span-2">
-          <h2 data-i18n="publications">Selected Publications & Works</h2>
-          <p class="section-note" data-i18n="pubsHint">Auto-synced daily from Google Scholar when GitHub Actions runs; falls back to the curated local list.</p>
-          <ul id="publicationList" class="pubs">
-            <li>Loading publications…</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h2 data-i18n="skills">Research Interests</h2>
+        <section class="side-section">
+          <h2 data-i18n="interestsTitle">Research Interests</h2>
           <div class="tags">
-            <span>Computer-Use Agents</span><span>Agent Safety</span><span>Agentic RL</span><span>Post-Training</span><span>Verifier Design</span><span>Tool-use Reliability</span>
+            <span>Agent Safety</span>
+            <span>Computer-Use Agents</span>
+            <span>Backdoor Attacks</span>
+            <span>Agentic RL</span>
+            <span>Runtime Guardrails</span>
           </div>
-        </article>
+        </section>
+      </aside>
 
-        <article class="card">
-          <h2 data-i18n="service">Academic Service</h2>
-          <ul>
-            <li>Reviewer, Annual Conference on Neural Information Processing Systems, 2026</li>
-            <li>Reviewer, International Conference on Machine Learning, 2026</li>
-            <li>Reviewer, Chinese Conference on Pattern Recognition and Computer Vision, 2026</li>
-            <li>Reviewer, Knowledge-Based Systems</li>
-            <li>Reviewer, ACM Computing Surveys</li>
-          </ul>
-        </article>
+      <section class="content">
+        <section id="about" class="hero-section">
+          <p class="eyebrow" data-i18n="eyebrow">Trustworthy agents, from attacks to defenses</p>
+          <h2 data-i18n="heroTitle">I study how autonomous AI agents fail, and how to make them safer in real execution environments.</h2>
+          <p data-i18n="heroCopy">
+            My work focuses on computer-use and coding agents, including harmful trajectory benchmarks, skill-level backdoors, runtime monitoring, process-level verification, and training safer guard models from real interaction traces.
+          </p>
+          <div class="hero-actions">
+            <a class="primary-link" href="#publications" data-i18n="viewPubs">View publications</a>
+            <a class="secondary-link" href="https://github.com/Yunhao-Feng" target="_blank" rel="noreferrer" data-i18n="viewProjects">View projects</a>
+          </div>
+        </section>
 
-        <article class="card">
-          <h2 data-i18n="awards">Awards</h2>
-          <ul>
-            <li data-i18n="award1">Champion, Huawei Cup China Graduate AI Innovation Competition (LLM Security Track)</li>
-            <li data-i18n="award2">Third Prize, China Graduate Electronic Design Contest</li>
-            <li data-i18n="award3">Second Prize, National College Mathematical Modeling Contest</li>
-          </ul>
-        </article>
+        <section class="section-block impact-strip" aria-label="Research impact">
+          <div>
+            <strong>2,653</strong>
+            <span data-i18n="impactHazard">AgentHazard instances for multi-step harmful behavior evaluation</span>
+          </div>
+          <div>
+            <strong>3,000+</strong>
+            <span data-i18n="impactTrojan">SkillTrojan backdoored skills for skill-based agent security</span>
+          </div>
+          <div>
+            <strong>80%+</strong>
+            <span data-i18n="impactGuard">BraveGuard trajectory-level safety detection accuracy</span>
+          </div>
+        </section>
 
-        <article class="card span-2">
-          <h2 data-i18n="repos">Top GitHub Repositories</h2>
-          <p data-i18n="reposHint">Auto-loaded from GitHub API by stars.</p>
-          <div id="repoList" class="repos"></div>
-        </article>
+        <section id="news" class="section-block">
+          <div class="section-heading">
+            <h2 data-i18n="newsTitle">News</h2>
+            <p data-i18n="newsHint">Recent updates and paper milestones.</p>
+          </div>
+          <ol class="timeline">
+            <li><time>2026.08</time><span data-i18n="newsCitations">Google Scholar profile reaches 150 total citations.</span></li>
+            <li><time>2026.08</time><span data-i18n="newsMm">AgentHazard is accepted to ACM Multimedia 2026.</span></li>
+            <li><time>2026.07</time><span data-i18n="newsJail">JAIL is published in Expert Systems with Applications.</span></li>
+            <li><time>2026.06</time><span data-i18n="newsBrave">BraveGuard and Safety in Self-Evolving LLM Agent Systems are released.</span></li>
+            <li><time>2026.05</time><span data-i18n="newsAnt">Joined Ant Group as an algorithm engineer intern, focusing on agent safety.</span></li>
+            <li><time>2026.04</time><span data-i18n="newsSkill">SkillTrojan is accepted to ICML 2026.</span></li>
+            <li><time>2026.01</time><span data-i18n="newsBackdoor">BackdoorAgent is accepted to ACL Findings 2026.</span></li>
+          </ol>
+        </section>
+
+        <section id="publications" class="section-block">
+          <div class="section-heading">
+            <h2 data-i18n="pubTitle">Selected Publications</h2>
+            <p data-i18n="pubHint">Curated from Google Scholar and verified public records; starred venues are emphasized.</p>
+          </div>
+          <div id="publicationList" class="publication-list" aria-live="polite">
+            <p class="loading">Loading publications...</p>
+          </div>
+        </section>
+
+        <section id="experience" class="section-block two-column">
+          <div>
+            <div class="section-heading compact">
+              <h2 data-i18n="experienceTitle">Experience</h2>
+            </div>
+            <ul class="detail-list">
+              <li>
+                <strong data-i18n="expAnt">Ant Group, Department of Large Security</strong>
+                <span data-i18n="expAntMeta">Algorithm Engineer Intern · Agent Safety · 2026.05 - Present</span>
+              </li>
+              <li>
+                <strong data-i18n="expAli">Alibaba Future Living Lab</strong>
+                <span data-i18n="expAliMeta">Algorithm Engineer Intern · Coding Agent Safety · 2025.12 - 2026.05</span>
+              </li>
+              <li>
+                <strong data-i18n="expFudan">Fudan University</strong>
+                <span data-i18n="expFudanMeta">Visiting Student · 2025.05 - 2025.12</span>
+              </li>
+              <li>
+                <strong data-i18n="expJd">JD Explore Academy</strong>
+                <span data-i18n="expJdMeta">Algorithm Engineer Intern · 2022.02 - 2022.05</span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="section-heading compact">
+              <h2 data-i18n="educationTitle">Education</h2>
+            </div>
+            <ul class="detail-list">
+              <li>
+                <strong data-i18n="eduPhd">National University of Defense Technology</strong>
+                <span data-i18n="eduPhdMeta">Ph.D., Management Science and Engineering · 2024.03 - Present</span>
+              </li>
+              <li>
+                <strong data-i18n="eduMaster">National University of Defense Technology</strong>
+                <span data-i18n="eduMasterMeta">M.Eng., Electronic Information · 2022.08 - 2024.03</span>
+              </li>
+              <li>
+                <strong data-i18n="eduBachelor">Southwestern University of Finance and Economics</strong>
+                <span data-i18n="eduBachelorMeta">B.Sc., Information Management and Information System · 2018.09 - 2022.06</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="section-block two-column">
+          <div>
+            <div class="section-heading compact">
+              <h2 data-i18n="serviceTitle">Academic Service</h2>
+            </div>
+            <ul class="plain-list">
+              <li>Reviewer, NeurIPS 2026</li>
+              <li>Reviewer, ICML 2026</li>
+              <li>Reviewer, PRCV 2026</li>
+              <li>Reviewer, Knowledge-Based Systems</li>
+              <li>Reviewer, ACM Computing Surveys</li>
+            </ul>
+          </div>
+          <div>
+            <div class="section-heading compact">
+              <h2 data-i18n="awardsTitle">Awards</h2>
+            </div>
+            <ul class="plain-list">
+              <li data-i18n="awardHuawei">Champion, Huawei Cup China Graduate AI Innovation Competition, LLM Security Track</li>
+              <li data-i18n="awardDesign">Third Prize, China Graduate Electronic Design Contest</li>
+              <li data-i18n="awardModeling">Second Prize, National College Mathematical Modeling Contest</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="section-block">
+          <div class="section-heading">
+            <h2 data-i18n="reposTitle">Projects</h2>
+            <p data-i18n="reposHint">Representative open-source projects, loaded from GitHub when available.</p>
+          </div>
+          <div id="repoList" class="repo-grid" aria-live="polite"></div>
+        </section>
       </section>
     </main>
 
-    <footer class="footer">© <span id="year"></span> Yunhao Feng</footer>
+    <footer class="footer">© <span id="year"></span> Yunhao Feng. Built for research, collaboration, and agent safety.</footer>
     <script src="script.js"></script>
   </body>
 </html>
